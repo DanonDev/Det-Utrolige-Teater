@@ -9,4 +9,7 @@ html {
 
 body {
     width: 1200px;
+    border-left: 1px solid lightcoral;
+    border-right: 1px solid lightcoral;
+    /* height: 100vh; */
 }
