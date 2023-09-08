@@ -5,6 +5,7 @@ import Events from './pages/Events.jsx';
 import Actors from './pages/Actors.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
+import ActorsInfo from './pages/ActorsInfo.jsx';
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     {
         path: 'actors',
         element: <Actors />,
+    },
+    {
+        path: 'actors/:actor_id',
+        element: <ActorsInfo />,
     },
 ]);
 
