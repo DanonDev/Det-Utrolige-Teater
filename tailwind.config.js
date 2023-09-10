@@ -20,6 +20,9 @@ export default {
                 12: '11px',
                 16: '16px',
             },
+            fontSize: {
+                custom: '45px',
+            },
         },
     },
     plugins: [],

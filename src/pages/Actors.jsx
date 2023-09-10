@@ -8,7 +8,7 @@ const Actors = () => {
     const [actorsData, setActorsData] = useState([]);
 
     useEffect(() => {
-        // Use a loop to fetch data for actor IDs from 1 to 17
+        // Using a loop to fetch data for actor IDs from 1 to 17
         const fetchDataForActors = async () => {
             const actorsDataArray = [];
             for (let actorId = 1; actorId <= 17; actorId++) {
@@ -33,9 +33,9 @@ const Actors = () => {
         <>
             <MainLayout>
                 <div className="flex flex-col border-2 border-b-0 border-border-gold w-full p-7 mt-10">
-                    <p className="text-5xl font-normal font-playfair text-text-gold">
+                    <h1 className="text-6xl font-normal font-playfair text-text-gold">
                         Skuespillere
-                    </p>
+                    </h1>
                     <div className="flex flex-col">
                         {actorsData.map((actor) => (
                             <div className="flex flex-col" key={actor.id}>
