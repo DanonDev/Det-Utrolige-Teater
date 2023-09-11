@@ -1,16 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import Events from './pages/Events.jsx';
-import Actors from './pages/Actors.jsx';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
-import ActorsInfo from './pages/ActorsInfo.jsx';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import Events from './pages/Events.jsx'
+import Actors from './pages/Actors.jsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import './index.css'
+import ActorsInfo from './pages/ActorsInfo.jsx'
+import EventsInfo from './pages/EventsInfo.jsx'
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
+    },
+    {
+        path: 'events/:event_id',
+        element: <EventsInfo />,
     },
     {
         path: 'events',
@@ -24,10 +29,10 @@ const router = createBrowserRouter([
         path: 'actors/:actor_id',
         element: <ActorsInfo />,
     },
-]);
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <RouterProvider router={router} />
     </React.StrictMode>
-);
+)

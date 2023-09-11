@@ -1,12 +1,13 @@
-import Banner from '../components/Banner';
-import MainLayout from '../components/mainLayout';
-import { useEffect, useState, useMemo } from 'react';
-import BugsyMalone from '../assets/events/large/bugsy-malone.jpg';
-import FormatDate from '../components/FormatDate';
+import Banner from '../components/Banner'
+import MainLayout from '../components/mainLayout'
+import { useEffect, useState, useMemo } from 'react'
+import BugsyMalone from '../assets/events/large/bugsy-malone.jpg'
+import FormatDate from '../components/FormatDate'
+import { Link } from 'react-router-dom'
 
 const Events = () => {
-    const [eventData, setEventData] = useState([]);
-    const eventInfo = useMemo(() => [2, 3, 4, 5, 6], []);
+    const [eventData, setEventData] = useState([])
+    const eventInfo = useMemo(() => [2, 3, 4, 5, 6], [])
 
     useEffect(() => {
         Promise.all(
@@ -18,29 +19,29 @@ const Events = () => {
                 Promise.all(responses.map((response) => response.json()))
             )
             .then((data) => {
-                setEventData(data);
+                setEventData(data)
             })
             .catch((error) => {
-                console.error(`Error fetching event data:`, error);
-            });
-    }, [eventInfo]);
+                console.error(`Error fetching event data:`, error)
+            })
+    }, [eventInfo])
 
-    const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
+    const [sortOrder, setSortOrder] = useState('asc') // 'asc' for ascending, 'desc' for descending
 
     const sortedEventData = useMemo(() => {
-        const sortedData = [...eventData]; // Create a copy of the array to avoid mutating the original data
+        const sortedData = [...eventData] // Create a copy of the array to avoid mutating the original data
         sortedData.sort((a, b) => {
-            const titleA = a.title.toUpperCase();
-            const titleB = b.title.toUpperCase();
+            const titleA = a.title.toUpperCase()
+            const titleB = b.title.toUpperCase()
 
             if (sortOrder === 'asc') {
-                return titleA.localeCompare(titleB);
+                return titleA.localeCompare(titleB)
             } else {
-                return titleB.localeCompare(titleA);
+                return titleB.localeCompare(titleA)
             }
-        });
-        return sortedData;
-    }, [eventData, sortOrder]);
+        })
+        return sortedData
+    }, [eventData, sortOrder])
 
     return (
         <>
@@ -96,12 +97,15 @@ const Events = () => {
                                     </div>
                                 </div>
                                 <div className="flex gap-4 items-center pr-7">
-                                    <button className="p-4 font-titillium text-xl font-bold text-white bg-btn hover:bg-btn-hover hover:text-text-gold">
+                                    <Link
+                                        className="p-4 font-titillium text-xl font-bold text-white bg-btn hover:bg-btn-hover hover:text-text-gold"
+                                        to={`/events/${event.id}`}
+                                    >
                                         LÆS MERE
-                                    </button>
-                                    <button className="p-4 font-titillium text-xl font-bold text-white bg-text-gold hover:bg-border-gold">
+                                    </Link>
+                                    <Link className="p-4 font-titillium text-xl font-bold text-white bg-text-gold hover:bg-border-gold">
                                         KØB BILLET
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -109,10 +113,10 @@ const Events = () => {
                 </div>
             </MainLayout>
         </>
-    );
-};
+    )
+}
 
-export default Events;
+export default Events
 
 // const { event_id } = useParams();
 // const [eventInfo, setEventInfo] = useState({});

@@ -23,7 +23,10 @@ export default {
             fontSize: {
                 custom: '45px',
             },
+            height: {
+                customHeight: '196px',
+            },
         },
     },
     plugins: [],
-};
+}

@@ -1,25 +1,25 @@
-import MainLayout from '../components/mainLayout';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import MainLayout from '../components/mainLayout'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 const ActorsInfo = () => {
-    const { actor_id } = useParams();
-    const [actorsInfo, setActorsInfo] = useState({});
+    const { actor_id } = useParams()
+    const [actorsInfo, setActorsInfo] = useState({})
 
     useEffect(() => {
         const getData = async () => {
             try {
                 const result = await axios.get(
                     `http://localhost:4000/actors/${actor_id}`
-                );
-                setActorsInfo(result.data);
+                )
+                setActorsInfo(result.data)
             } catch (err) {
-                console.error(err);
+                console.error(err)
             }
-        };
-        getData();
-    }, [actor_id]);
+        }
+        getData()
+    }, [actor_id])
 
     return (
         <>
@@ -45,12 +45,15 @@ const ActorsInfo = () => {
                         </div>
                     </div>
                 </div>
-                <button className="float-right w-60 p-3 mt-7 mb-16 font-titillium text-lg font-bold text-white bg-text-gold hover:bg-border-gold">
-                    <Link to={`/actors`}>ALLE SKUESPILLERE</Link>
-                </button>
+                <Link
+                    to={`/actors`}
+                    className="float-right p-3 mt-7 mb-16 font-titillium text-xl font-bold text-white bg-text-gold hover:bg-border-gold"
+                >
+                    ALLE SKUESPILLERE
+                </Link>
             </MainLayout>
         </>
-    );
-};
+    )
+}
 
-export default ActorsInfo;
+export default ActorsInfo
