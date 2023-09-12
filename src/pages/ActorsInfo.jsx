@@ -1,25 +1,25 @@
-import MainLayout from '../components/mainLayout'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import MainLayout from '../components/mainLayout';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 const ActorsInfo = () => {
-    const { actor_id } = useParams()
-    const [actorsInfo, setActorsInfo] = useState({})
+    const { actor_id } = useParams();
+    const [actorsInfo, setActorsInfo] = useState({});
 
     useEffect(() => {
         const getData = async () => {
             try {
                 const result = await axios.get(
                     `http://localhost:4000/actors/${actor_id}`
-                )
-                setActorsInfo(result.data)
+                );
+                setActorsInfo(result.data);
             } catch (err) {
-                console.error(err)
+                console.error(err);
             }
-        }
-        getData()
-    }, [actor_id])
+        };
+        getData();
+    }, [actor_id]);
 
     return (
         <>
@@ -39,7 +39,7 @@ const ActorsInfo = () => {
                             <h2 className="font-titillium pb-2 text-text-gray text-4xl">
                                 {actorsInfo.name}
                             </h2>
-                            <p className="font-titillium text-text-gold text-2xl">
+                            <p className="whitespace-pre-wrap font-titillium text-text-gold text-2xl">
                                 {actorsInfo.description}
                             </p>
                         </div>
@@ -53,7 +53,7 @@ const ActorsInfo = () => {
                 </Link>
             </MainLayout>
         </>
-    )
-}
+    );
+};
 
-export default ActorsInfo
+export default ActorsInfo;

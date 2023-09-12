@@ -24,9 +24,9 @@ export default {
                 custom: '45px',
             },
             height: {
-                customHeight: '196px',
+                customHeight: '700px',
             },
         },
     },
     plugins: [],
-}
+};

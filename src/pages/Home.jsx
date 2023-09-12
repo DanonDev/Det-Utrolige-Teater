@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import MainLayout from '../components/mainLayout';
 import FormatDate from '../components/FormatDate';
 import Banner from '../components/Banner';
+import { Link } from 'react-router-dom';
 
 import BugsyMalone from '../assets/events/large/bugsy-malone.jpg';
 import KejserensNye from '../assets/events/large/kejserens-nye-klaeder.jpg';
@@ -33,48 +34,51 @@ const Home = () => {
             <>
                 <Banner />
                 <div className="flex justify-between mt-16">
-                    {eventCards.map((eventCards) => (
-                        <div className="flex flex-col" key={eventCards.id}>
+                    {eventCards.map((event) => (
+                        <div className="flex flex-col" key={event.id}>
                             <div className="w-96">
-                                {eventCards.id === 2 ? (
+                                {event.id === 2 ? (
                                     <img
                                         className="h-96 w-96 object-cover border-12 border-border-gold"
                                         src={BugsyMalone}
-                                        alt={eventCards.title}
+                                        alt={event.title}
                                     />
-                                ) : eventCards.id === 3 ? (
+                                ) : event.id === 3 ? (
                                     <img
                                         className="h-96 w-96 object-cover border-12 border-border-gold"
                                         src={KejserensNye}
-                                        alt={eventCards.title}
+                                        alt={event.title}
                                     />
                                 ) : (
                                     <img
                                         className="h-96 w-96 object-cover border-12 border-border-gold"
                                         src={MitLivTim}
-                                        alt={eventCards.title}
+                                        alt={event.title}
                                     />
                                 )}
                             </div>
                             <div className="flex flex-col justify-end h-full w-96 pt-8 pr-5 pb-8 text-end border-2 border-t-0 border-border-gold font-titillium text-text-gray">
                                 <p className="text-lg">
-                                    {eventCards.stage.name.toUpperCase()}
+                                    {event.stage.name.toUpperCase()}
                                 </p>
                                 <p className="font-bold text-lg mb-2">
-                                    {FormatDate(eventCards.startdate, false)} -{' '}
-                                    {FormatDate(eventCards.stopdate)}
+                                    {FormatDate(event.startdate, false)} -{' '}
+                                    {FormatDate(event.stopdate)}
                                 </p>
                                 <div className=" ml-16 mb-4 border-b-2 border-text-gray border-opacity-20" />
                                 <h2 className="text-6xl pl-10 mb-1 font-playfair text-text-gold">
-                                    {eventCards.title}
+                                    {event.title}
                                 </h2>
                                 <p className="text-3xl">
-                                    {eventCards.genre.name.toUpperCase()}
+                                    {event.genre.name.toUpperCase()}
                                 </p>
                                 <div className="pt-5 flex justify-end gap-5">
-                                    <button className="p-3 font-titillium text-lg font-bold text-white bg-btn hover:bg-btn-hover hover:text-text-gold">
+                                    <Link
+                                        className="p-4 font-titillium text-xl font-bold text-white bg-btn hover:bg-btn-hover hover:text-text-gold"
+                                        to={`events/${event.id}`}
+                                    >
                                         LÆS MERE
-                                    </button>
+                                    </Link>
                                     <button className="p-3 font-titillium text-lg font-bold text-white bg-text-gold hover:bg-border-gold">
                                         KØB BILLET
                                     </button>

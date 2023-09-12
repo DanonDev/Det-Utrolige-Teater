@@ -32,12 +32,12 @@ const Header = () => {
                         </Link>
                     </li>
                     <li className="">
-                        <a
+                        <Link
                             className="text-lg cursor-pointer hover:text-text-gold"
-                            href="#"
+                            to="login"
                         >
                             LOGIN
-                        </a>
+                        </Link>
                     </li>
                 </nav>
             </header>
