@@ -87,9 +87,12 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-                <button className="float-right mt-6 mb-12 p-4 font-titillium text-lg font-bold text-white bg-text-gold hover:bg-border-gold">
+                <Link
+                    to="/events"
+                    className="float-right mt-6 mb-12 p-4 font-titillium text-lg font-bold text-white bg-text-gold hover:bg-border-gold"
+                >
                     SE ALLE FORESTILLINGER
-                </button>
+                </Link>
             </>
         </MainLayout>
     );

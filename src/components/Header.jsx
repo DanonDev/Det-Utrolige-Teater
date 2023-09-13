@@ -34,7 +34,7 @@ const Header = () => {
                     <li className="">
                         <Link
                             className="text-lg cursor-pointer hover:text-text-gold"
-                            to="login"
+                            to="/login"
                         >
                             LOGIN
                         </Link>
